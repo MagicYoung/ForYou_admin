@@ -1,0 +1,75 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "umi dev",
+    "build": "umi build",
+    "test": "umi test",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx src mock",
+    "lint-fix": "eslint --ext .js,.jsx,.ts,.tsx src mock --fix",
+    "prettier": "check-prettier lint",
+    "prettier-fix": "node ./scripts/prettier.js",
+    "lint-staged": "lint-staged",
+    "deploy": "node ./scripts/deployment.js",
+    "release": "standard-version"
+  },
+  "dependencies": {
+    "ant-design-pro": "^2.3.2",
+    "archiver": "^3.1.1",
+    "classnames": "^2.2.6",
+    "compression": "^1.7.4",
+    "enquire": "0.0.2",
+    "helmet": "^3.22.0",
+    "hoist-non-react-statics": "^3.3.1",
+    "jquery": "^3.4.1",
+    "leancloud-storage": "^4.1.0",
+    "lodash": "^4.17.15",
+    "md5": "^2.2.1",
+    "moment": "^2.24.0",
+    "react": "^16.8.6",
+    "react-amap": "^1.2.8",
+    "react-dom": "^16.8.6",
+    "react-lz-editor": "^0.12.1",
+    "react-zmage": "^0.8.5",
+    "request-promise": "^4.2.5",
+    "slick-carousel": "^1.8.1",
+    "umi-server": "^1.2.3",
+    "wangeditor": "^3.1.1",
+    "xlsx": "^0.15.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.12",
+    "@types/react": "^16.7.18",
+    "@types/react-dom": "^16.0.11",
+    "@types/react-test-renderer": "^16.0.3",
+    "babel-eslint": "^9.0.0",
+    "eslint": "^5.4.0",
+    "eslint-config-umi": "^1.4.0",
+    "eslint-plugin-flowtype": "^2.50.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.11.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.2.2",
+    "react-test-renderer": "^16.7.0",
+    "tslint": "^5.12.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-react": "^3.6.0",
+    "umi": "^2.x",
+    "umi-plugin-react": "^1.8.0",
+    "umi-types": "^0.3.0",
+    "webpack-chain": "^6.4.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "tslint --fix",
+      "git add"
+    ],
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  }
+}

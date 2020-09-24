@@ -1,0 +1,23 @@
+{
+  "extends": ["eslint-config-umi", "plugin:@typescript-eslint/recommended"],
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".tsx"] }],
+    "jsx-quotes": ["error", "prefer-double"],
+    "jsx-a11y/anchor-has-content": false,
+    "jsx-a11y/alt-text": false,
+    "@typescript-eslint/indent": false,
+    "@typescript-eslint/explicit-member-accessibility": false,
+    "@typescript-eslint/explicit-function-return-type": false,
+    "@typescript-eslint/no-explicit-any": false,
+    "@typescript-eslint/no-unused-vars": ["error"],
+    "jsx-a11y/anchor-is-valid": false,
+    "@typescript-eslint/no-empty-interface": false,
+    "no-control-regex": 0,
+    "no-throw-literal": 0
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "parser": "@typescript-eslint/parser"
+}

@@ -1,0 +1,48 @@
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+@import './themes/common.less';
+
+.upload-list-inline .ant-upload-list-item {
+  float: left;
+  width: 200px;
+  margin-right: 8px;
+}
+.upload-list-inline .ant-upload-animate-enter {
+  animation-name: uploadAnimateInlineIn;
+}
+.upload-list-inline .ant-upload-animate-leave {
+  animation-name: uploadAnimateInlineOut;
+}
+
+.ant-input-number {
+  width: 100% !important;
+}
+.ant-table td {
+  white-space: nowrap;
+}
+
+.ant-pagination {
+  float: right;
+}
+
+.slick-dots {
+  bottom: 20px;
+  li {
+    margin: 0px;
+  }
+}
+.slick-active {
+  button {
+    &::before {
+      color: @black-color !important;
+    }
+  }
+}

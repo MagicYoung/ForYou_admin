@@ -1,0 +1,73 @@
+@import '~antd/lib/style/themes/default.less';
+@import '../../themes/common.less';
+
+.item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  position: relative;
+  border-bottom: 1px solid #e6e7e8;
+  .cover {
+    height: 80px;
+    width: 80px;
+    border-radius: 4px;
+    object-fit: scale-down;
+    object-position: center;
+    margin-left: 6px;
+    margin-right: 12px;
+  }
+  .info {
+    flex: 1;
+  }
+  .name {
+    padding-right: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    color: @heading-color;
+  }
+  .fName {
+    margin-top: 2px;
+    font-size: 12px;
+    font-weight: bold;
+    color: @text-color-secondary;
+    margin-bottom: 2px;
+  }
+  .price {
+    margin-top: 2px;
+    font-size: 14px;
+    color: @heading-color;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+
+    span {
+      font-weight: normal;
+    }
+  }
+  .cultery {
+    display: flex;
+    margin-top: 4px;
+    align-items: center;
+    font-size: 12px;
+    div {
+      text-align: center;
+      border-radius: 10px;
+      line-height: 20px;
+      padding: 2px 8px;
+      background: @border-color-split;
+      color: @heading-color;
+      margin-right: 4px;
+    }
+  }
+}
+.edit {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  width: 30px;
+  height: 30px;
+  background: @border-color-split;
+  border-radius: 50%;
+  .flex-center;
+}

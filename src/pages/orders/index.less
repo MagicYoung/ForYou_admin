@@ -1,0 +1,33 @@
+@import '../../themes/common.less';
+@import '~antd/lib/style/themes/default.less';
+.container {
+  .common-layout-container;
+  padding: 0 12px;
+  .label {
+    text-align: center;
+    border-radius: 10px;
+    line-height: 20px;
+    padding: 4px 10px;
+    background: @border-color-split;
+    color: white;
+    font-size: 12px;
+    margin-right: 4px;
+  }
+  .tabs {
+    height: 45px;
+    border-bottom: 1px solid @border-color-split;
+    width: 100%;
+    .flex-center;
+    .tab {
+      height: 100%;
+      .flex-center-column;
+      font-size: 16px;
+      color: @text-color;
+      width: 50%;
+    }
+    .active {
+      border-bottom: 2px solid @black-color;
+      font-weight: bold;
+    }
+  }
+}

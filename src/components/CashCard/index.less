@@ -1,0 +1,83 @@
+.card {
+  width: 100%;
+  background-color: rgb(115, 125, 152);
+  position: relative;
+  overflow: hidden;
+  .header {
+    height: 40px;
+    border-bottom: 1px solid rgb(180, 180, 180);
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    justify-content: space-between;
+    .label {
+      font-size: 14px;
+      color: white;
+      font-weight: 500px;
+    }
+    .valid {
+      color: #7bddac;
+      font-size: 12px;
+    }
+  }
+  .circleLeft {
+    background: white;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    position: absolute;
+    left: -8px;
+    top: 32px;
+  }
+  .circleRight {
+    background: white;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    position: absolute;
+    right: -8px;
+    top: 32px;
+  }
+  .content {
+    padding: 12px;
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: space-between;
+    span {
+      span {
+        margin-left: 4px;
+        color: white;
+        font-size: 24px;
+        font-weight: 500;
+        letter-spacing: 2px;
+      }
+    }
+    .tip {
+      color: white;
+      font-size: 10px;
+      width: 70%;
+      .use {
+        margin-top: 12px;
+        float: right;
+        height: 28px;
+        border-radius: 15px;
+        color: white;
+        font-size: 12px;
+        border: 1px solid rgb(180, 180, 180);
+        width: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+  .listItem {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.disabled {
+  opacity: 0.6;
+}

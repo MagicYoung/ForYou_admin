@@ -1,0 +1,96 @@
+@import '~antd/lib/style/themes/default.less';
+@import '../../../themes/common.less';
+
+.searchForm {
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.dataContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 18px 0;
+  overflow-y: auto;
+  .item {
+    border-radius: 6px;
+    position: relative;
+    width: 200px;
+    height: 250px;
+    overflow: hidden;
+    border: 1px solid @border-color-base;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      object-position: center;
+    }
+    .row {
+      padding: 8px 8px 0 8px;
+      display: flex;
+      color: @text-color-secondary;
+      justify-content: space-between;
+      .title {
+        color: @text-color;
+        font-size: 15px;
+        font-weight: bold;
+        .text-overflow;
+      }
+      .subtitle {
+        color: @text-color-secondary;
+        font-size: 14px;
+        .text-overflow;
+        margin-left: 6px;
+      }
+    }
+  }
+}
+
+.empty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: @text-color-secondary;
+  font-size: 18px;
+}
+
+.drawerForm {
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 108px;
+}
+
+.drawerFooter {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid @border-color-split;
+  padding: 10px 16px;
+  background: #fff;
+  text-align: right;
+  z-index: 9999999;
+}
+.WEditor{
+  width: 100%;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+}
+:global{
+  .RichEditor-editor .public-DraftEditor-content{
+    min-height: 180px !important;
+  }
+  .w-e-text-container{
+    flex: 1;
+  }
+}

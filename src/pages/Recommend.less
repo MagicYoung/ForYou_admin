@@ -1,0 +1,65 @@
+@import '../themes/common.less';
+@import '~antd/lib/style/themes/default.less';
+.container {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  .banner {
+    .item {
+      position: relative;
+      width: 100%;
+      img {
+        width: 100%;
+        height:200px ;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+  }
+  .title{
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    margin-top:10px ;
+    span{
+      margin-left: 5px;
+    }
+  }
+
+  .recommendImg{
+    width: 33vw;
+    height: 130px;
+    object-fit: cover;
+    object-position: center;
+  }
+  .hotImg{
+    height: 180px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center
+  }
+  .transparentFrame{
+    text-align: right;
+    width: 100%;
+    bottom: 0;
+    color: #ffffff;
+    background-color: #000000;
+    opacity: 0.7;
+    padding: 3px 3px;
+    position: absolute;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    .banner {
+      .item {
+        height: 200px;
+      }
+    }
+  }
+}

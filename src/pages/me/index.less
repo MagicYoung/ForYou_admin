@@ -1,0 +1,154 @@
+@import '~antd/lib/style/themes/default.less';
+@import '../../themes//common.less';
+.container {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  .bg {
+    width: 300%;
+    height: 55%;
+    background-color: #CDC5BF;
+    border-radius: 50%;
+    left: -100%;
+    top: -10%;
+    position: absolute;
+    overflow-y: hidden;
+    // width: 100%;
+    // height: 50%;
+    background-color: #CDC5BF;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    .idCard{
+      color: #CDC5BF;
+      background-color: #000000;
+      width: 85vw;
+      min-height: 65%;
+      display: flex;
+      padding: 20px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+  }
+  .avatarBg {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    object-position: center;
+    filter: blur(3px) brightness(0.8);
+  }
+  .avatar {
+    margin-top: 10px;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    border: 3px solid #CDC5BF;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .contentWrapper {
+    position: absolute;
+    top:45%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: white;
+    border-radius: 6px;
+    .content {
+      height: 100%;
+      width: 100%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .userInfo {
+        .flex-center-column;
+        .content {
+          margin-top: 20px;
+          .flex-center-column;
+          width: 100%;
+          .col {
+            width: 60px;
+            box-sizing: content-box;
+            .flex-center-column;
+            div {
+              font-size: 12px;
+              color: #000000;
+              font-weight: bold;
+              margin-top: 6px;
+            }
+            .iconDiv{
+              background-color: #000000;
+              padding: 5px;
+              border-radius: 8px;
+              width: 40px;
+              height: 40px;
+              .icon {
+                height: 100%;
+                width: 100%;
+              }
+            }
+            .small {
+              height: 24px;
+              width: 24px;
+              margin-top: 3px;
+              margin-bottom: 3px;
+            }
+          }
+        }
+      }
+      .recommend {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 8px;
+        margin-top: 20px;
+      }
+      .rTip {
+        padding-left: 10px;
+        font-size: 18px;
+        color: #000000;
+      }
+    }
+  }
+  
+  .noAuth {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .loginBtn{
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .btn{
+        padding: 10px 20px;
+        border-radius: 10px;
+        background-color: #EECFA1;
+        color: #000000;
+        font-weight: bold;
+      }
+    }
+    .tip {
+      font-size: 16px;
+      color: @heading-color;
+    }
+    .button {
+      margin-top: 20px;
+      .flex-center;
+      color: #ffffff;
+      font-size: 14px;
+      width: 120px;
+      height: 40px;
+      border-radius: 20px;
+      background-color: @black-color;
+      .box-shadow;
+    }
+  }
+}

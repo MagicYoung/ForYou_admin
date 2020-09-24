@@ -1,0 +1,203 @@
+@import '~antd/lib/style/themes/default.less';
+.container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  .header {
+    position: absolute;
+    z-index: 999;
+    padding: 0 10px;
+    max-width: 600px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    height: 50px;
+    display: flex;
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.1);
+    align-items: center;
+    //background: white;
+    .city {
+      padding: 6px;
+      color: @text-color;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+    }
+    .icon_header{
+      font-size: 23px;
+      padding: 0 8px;
+      color: #000000;
+    }
+    .shopSearch{
+      flex: 1;
+      display: flex;
+      align-items: flex-end;
+      color: #000000;
+      padding-bottom: 5px;
+      height: 100%;
+      border-bottom: 2px solid #000000;
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+    .content {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #000000;
+      font-size: 18px;
+      padding: 12px 0;
+      img {
+        margin-right: 50px;
+        object-fit: contain;
+        height: 43px;
+      }
+    }
+  }
+  .layoutContent {
+    position: absolute;
+    //top: 43px;
+    bottom: 45px;
+    max-width: 600px;
+    left: 0;
+    right: 0;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    background: white;
+  }
+  .noTab {
+    bottom: 0;
+  }
+  .tabBar {
+    max-width: 600px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: 55px;
+    // display: flex;
+    // align-items: center;
+    background: white;
+    border-top: 1px solid @border-color-split;
+    .item {
+      flex: 1;
+      border-right: 1px solid @border-color-split;
+      color: @text-color;
+      text-align: center;
+    }
+  }
+  .searchContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;z-index: 999;
+    .mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.3);
+    }
+    .search {
+      position: relative;
+      z-index: 10;
+      height: 70vh;;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      //align-items: center;
+      // justify-content: center;
+      padding: 18px;
+      // input {
+      //   font-size: 18px;
+      //   color: @text-color;
+      //   margin-bottom: 16px;
+      //   border: none;
+      //   text-align: center;
+      // }
+    }
+    
+    .hotSearch{
+      padding: 20px 10px ;
+      .title{
+        font-size: 16px;
+        color: #000000;
+        font-weight: bold;
+      }
+      .content{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        .tag{
+          margin-right: 15px;
+          margin-bottom: 20px;
+          border: none;
+          font-size: 14px;
+          color: #000000;
+          padding: 5px 10px;
+          background-color: #F0F0F0;
+          max-width: 100%;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+  :global {
+    .am-search-cancel {
+      color: #000000;
+      font-size: 15px;
+    }
+    .am-search{
+      background:none;
+    }
+    .am-search-input .am-search-synthetic-ph {
+      border-bottom: 2px solid #000000;
+      width: 100% !important;
+      text-align: left;    
+      box-sizing: border-box;
+    }
+    .am-search.am-search-start .am-search-input .am-search-synthetic-ph{
+      padding-left: 0;
+    }
+    .am-search.am-search-start .am-search-input input[type="search"]{
+      padding: 0 28px 0 20px;
+    }
+    .am-list-item .am-list-line .am-list-content{
+      font-size: 15px;
+    }
+  }
+}
+
+.drawer {
+  padding-top: 18px;
+  .level1 {
+    display: flex;
+    height: 45px;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid @border-color-split;
+    font-size: 14px;
+    font-weight: bold;
+    color: @heading-color;
+  }
+  .level2 {
+    .level1;
+    border-bottom: none;
+    color: @text-color;
+    font-weight: normal;
+    height: 40px;
+    font-weight: 12px;
+    position: relative;
+  }
+  .icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 16px;
+  }
+}

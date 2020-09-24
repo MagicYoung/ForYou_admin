@@ -1,0 +1,262 @@
+@import '../../themes/common.less';
+@import '~antd/lib/style/themes/default.less';
+.container {
+  .common-layout-container;
+  padding-bottom: 60px;
+  position: relative;
+  .tabBar{
+    border-top: 1px solid @border-color-split;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    background: white;
+    padding: 15px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .tabBarButton {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: 80%;
+      .button {
+        padding: 0 8px;
+        width: 45%;
+        height: 100%;
+      }
+      .cart {
+        border: 1px solid #000;
+        background-color: #ffffff;
+        color: #000000;
+        border-radius: 2px;
+      }
+      .buy{
+        border-radius:2px;
+      }
+    }
+  }
+
+  
+  .proName {
+    font-size: 18px;
+    color: #000;
+    font-weight: bold;
+    padding: 0 10px;
+    margin-top: 10px;
+  }
+
+  .banner {
+    position: relative;
+    .item {
+      position: relative;
+      width: 100%;
+      padding-top: 100%;
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+    .carouselIndex{
+      position: absolute;
+      right: 20px;
+      bottom: 10px;
+      color: #000000;
+      z-index: 999999;
+      span{
+        font-size:25px;
+        font-weight: 500;
+      }
+    }
+  }
+  .specs {
+    height: 60px;
+    border-bottom: 1px solid @border-color-split;
+    width: 100%;
+    display: flex;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    .item {
+      flex: 1;
+      .flex-center-column;
+      .weight {
+        font-size: 15px;
+        color: @text-color-secondary;
+        margin-bottom: 4px;
+      }
+      .num {
+        font-size: 12px;
+        margin-bottom: 3px;
+        color: @text-color-secondary;
+      }
+    }
+    .active {
+      .weight,
+      .num {
+        color: @heading-color;
+        font-weight: bold;
+      }
+      border-bottom: 2px solid @black-color;
+    }
+  }
+  .price {
+    font-size: 19px;
+    color: @text-color;
+    padding: 10px 5px;
+    //border-bottom: 1px solid @border-color-split;
+    font-weight: bold;
+    .nPrice {
+      padding-left: 6px;
+      color: @heading-color;
+    }
+    .delete {
+      color: @text-color-secondary;
+      text-decoration: line-through;
+      margin-left: 10px;
+      font-size: 17px;
+      font-weight: normal;
+    }
+  }
+
+  .specInfo {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 15px;
+    border-bottom: 1px solid @border-color-split;
+    .item {
+      padding: 4px 0;
+      margin-right: 8px;
+      color: @text-color;
+      font-size: 10px;
+      .flex-center;
+      img {
+        width: 18px;
+        height: 18px;
+        margin-right: 6px;
+      }
+    }
+  }
+
+  .tags {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid @border-color-split;
+    margin-top: 20px;
+    .item {
+      margin-right: 15px;
+      margin-bottom: 20px;
+      border: none;
+      font-size: 14px;
+      color: #000000;
+      padding: 5px 10px;
+      background-color: #F0F0F0;
+      max-width: 100%;
+      overflow: hidden;
+    }
+  }
+
+  .description {
+    padding: 15px 30px;
+    border-bottom: 1px solid @border-color-split;
+    .cn {
+      font-size: 14px;
+      color: #000000;
+      img{
+        max-width: 100%;
+      }
+    }
+    .en {
+      margin-top: 4px;
+      font-size: 14px;
+      color: #000000;
+    }
+  }
+
+  .detailTab {
+    height: 45px;
+    border-bottom: 1px solid @border-color-split;
+    width: 100%;
+    .flex-center;
+    .tab {
+      height: 100%;
+      .flex-center-column;
+      font-size: 16px;
+      color: @text-color;
+      width: 50%;
+    }
+    .active {
+      border-bottom: 2px solid @black-color;
+      font-weight: bold;
+    }
+  }
+
+  .commentImgs {
+    margin-top: 12px;
+    width: 100%;
+    .commentImg {
+      width: 22%;
+      margin-right: 12px;
+      height: 70px;
+      border-radius: 6px;
+      border: 1px solid @border-color-split;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  .params {
+    padding: 18px 15px;
+    border-bottom: 1px solid @border-color-split;
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2px 4px;
+      color: #000000;
+      font-size: 14px;
+      span {
+        color: #000000;
+      }
+    }
+  }
+  .detail {
+    padding: 8px 20px;
+    .img {
+      width: 100%;
+    }
+  }
+  .recommend {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 8px;
+    margin-top: 20px;
+  }
+  .rTip {
+    padding-left: 15px;
+    font-size: 18px;
+    color: #000000;
+    font-weight: bold;
+  }
+  .borderBottom{
+    border-bottom: 1px solid @border-color-split;
+  }
+  .accordionPanelHeader{
+    font-size: 18px;
+    color: #000000;
+    font-weight: bolder;
+  }
+  :global{
+    .am-accordion-header::after{
+      content: none !important;
+    }
+    .am-accordion .am-accordion-item .am-accordion-header i{
+      background-image: url(../../assets/arrow.svg);
+    }
+  }
+}

@@ -1,0 +1,39 @@
+@import '~antd/lib/style/themes/default.less';
+@import '../../../themes//common.less';
+.container {
+  .common-layout-container;
+  padding-top: 20px;
+  height: 100%;
+  background-color: #fafafa;
+  .shanghai {
+    height: 35vh;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+.button{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+:global {
+  .am-list-item .am-input-label.am-input-label-5 {
+    width: 80px;
+    color: #838383;
+  }
+  .am-textarea-label.am-textarea-label-5 {
+    width: 80px;
+    color: #838383;
+  }
+  .am-list-item .am-list-line .am-list-content{
+    color: #838383;
+  }
+  .am-list-item .am-list-line .am-list-extra{
+    flex-basis: 70%;
+    color: #000000;
+  }
+  .am-switch input[type="checkbox"]:checked + .checkbox{
+    background-color: #022c27;
+  }
+}
