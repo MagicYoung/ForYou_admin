@@ -6,7 +6,6 @@ export const Design = AV.Object.extend('Design');
 export const Banner = AV.Object.extend('Banner');
 export const Setting = AV.Object.extend('Setting');
 export const Address = AV.Object.extend('Address');
-export const Cart = AV.Object.extend('Cart');
 export const Order = AV.Object.extend('Order');
 export const CardCouponCategory = AV.Object.extend('CardCouponCategory');
 export const CardCoupon=AV.Object.extend('CardCoupon');

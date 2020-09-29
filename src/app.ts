@@ -16,8 +16,8 @@ export const dva = {
 };
 
 AV.init({
-  appId: 'Qaq9PKl2shwwevAKv8BsrRma-gzGzoHsz',
-  appKey: 'YV4PiR238Y6CgaG5zXS6Wiqe',
+  appId: 'dJaCYd8eoaDHrQ8ydgCWKFt9-gzGzoHsz',
+  appKey: 'jrxq0xAag2Ag7cpg80hIuuhq',
   serverURLs: {
     api: 'https://redeemapi.zong-fu.com'
   }

@@ -13,7 +13,7 @@ const config: IConfig = {
       antd: true,
       dva: true,
       dynamicImport: { webpackChunkName: true },
-      title: '宗福',
+      title: '福优',
       dll: true,
       fastClick: true,
       routes: {

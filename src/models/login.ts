@@ -35,7 +35,8 @@ const loginModel: Model<State.LoginState> = {
       try {
         yield AV.Cloud.requestSmsCode({
           mobilePhoneNumber: mobile,
-          template: SMS.TEMPLATE,
+          // ttl: 10,
+          // template: SMS.TEMPLATE,
           sign: SMS.SIGN,
         });
         return true;

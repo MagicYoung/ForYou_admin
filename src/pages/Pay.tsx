@@ -262,7 +262,7 @@ class Pay extends React.Component<PayProps> {
           mobilePhoneNumber: mobileNum,
           template: 'ElectronicCode',
           elecId: sendSmsId,
-          sign: '宗福',
+          sign: '福优',
         });
       }
       Toast.success('提交成功!', 1.5);

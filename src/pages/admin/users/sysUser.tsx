@@ -56,14 +56,15 @@ class SysUsersPage extends React.Component<PageProps> {
             render: (item) => {
                 const menuList = this.state.userRightsList.find((ur) => ur.get('user').id === item.objectId);
                 return (
-                    (menuList && menuList.get('menuList')) ?
-                        <div style={{ maxWidth: 300, display: 'flex', flexWrap: 'wrap' }}>
-                            {
-                                menuList.get('menuList').map((ml) => {
-                                    return <Tag key={ml}>{this.getUserMenuName(ml)}</Tag>
-                                })
-                            }
-                        </div> : null
+                    item.isSysAdmin ? <div>系统最高权限管理员</div> :
+                        (menuList && menuList.get('menuList')) ?
+                            <div style={{ maxWidth: 300, display: 'flex', flexWrap: 'wrap' }}>
+                                {
+                                    menuList.get('menuList').map((ml) => {
+                                        return <Tag key={ml}>{this.getUserMenuName(ml)}</Tag>
+                                    })
+                                }
+                            </div> : null
                 )
                 // return (menuList && menuList.get('menuList')) ? menuList.get('menuList').map((ml) => {
                 //     return <Tag key={ml}>{this.getUserMenuName(ml)}</Tag>
@@ -85,13 +86,17 @@ class SysUsersPage extends React.Component<PageProps> {
             title: '是否禁用',
             render: item => {
                 const menuList = this.state.userRightsList.find((ur) => ur.get('user').id === item.objectId);
-                return (menuList && menuList.get('menuList').length) ? (<Tag color="green">使用中</Tag>) : (<Tag color="red">禁用</Tag>)
+                return (
+                    item.isSysAdmin ? <Tag color="green">使用中</Tag> :
+                        menuList && menuList.get('menuList').length) ? (<Tag color="green">使用中</Tag>) : (<Tag color="red">禁用</Tag>
+                    )
             }
         },
         {
             key: 'actions',
             title: '操作',
             render: (text, record, index) => {
+                const menuList = this.state.userRightsList.find((ur) => ur.get('user').id === record.objectId);
                 const onUserDelete = () => {
                     Modal.confirm({
                         title: '删除',
@@ -101,31 +106,34 @@ class SysUsersPage extends React.Component<PageProps> {
                         cancelText: '取消',
                         onOk: async () => {
                             const userId = record.originAVObject.id;
-                            const user = this.state.userRightsList.find((i) => i.get('user').id === userId);
-                            user?.set('isDelete', true);
-                            user?.set('menuList', []);
-                            await user.save();
+                            const userRightsList = this.state.userRightsList.find((i) => i.get('user').id === userId);
+                            if (userRightsList) {
+                                userRightsList?.set('isDelete', true);
+                                userRightsList?.set('menuList', []);
+                                await userRightsList.save();
+                            }
                             this.onSearch();
-                            console.log(user)
                         },
                     });
                 }
                 return [
                     <div key="detail">
                         {
-                            record.isSysAdmin ? <div>系统最高权限管理员</div> :
+                            <div>
                                 <div>
-                                    <div>
-                                        <a onClick={() => {
-                                            this.setState({ currUser: record.originAVObject, modalVisible: true })
-                                        }}>修改权限</a>
-                                    </div>
-                                    <div style={{ marginTop: 5 }}>
-                                        <a onClick={() => {
-                                            onUserDelete()
-                                        }}>删除</a>
-                                    </div>
+                                    <a onClick={() => {
+                                        this.setState({ currUser: record.originAVObject, modalVisible: true })
+                                    }}>修改权限</a>
                                 </div>
+                                {
+                                    record.isSysAdmin || (!menuList || !menuList.get('menuList').length) ? null :
+                                        <div style={{ marginTop: 5 }}>
+                                            <a onClick={() => {
+                                                onUserDelete()
+                                            }}>禁用</a>
+                                        </div>
+                                }
+                            </div>
                         }
                     </div>,
 
@@ -165,11 +173,6 @@ class SysUsersPage extends React.Component<PageProps> {
         const queryR = new AV.Query('User_Rights');
         queryR.notEqualTo('isDelete', true);
         const resR = await queryR.find();
-        data.map((item, index) => {
-            if (!resR.find((r) => { return r.get('user').id === item.id })) {
-                data.splice(index, 1);
-            }
-        })
         this.setState({
             AVData: data,
             dataSource: data.map(i => {
@@ -222,7 +225,11 @@ class SysUsersPage extends React.Component<PageProps> {
                     const userRightsObj = ur || new UserRights();
                     userRightsObj.set('menuList', fieldsValue.menuList);
                     userRightsObj.set('user', currUser);
-                    await userRightsObj.save();
+                    await userRightsObj.save(); 
+                    // 当前用户不具备 Administrator，因此你需要把当前用户添加到 Role 的 Users 中
+                    let relation = this.props.adminRole.getUsers();
+                    relation.add(currUser);
+                    await this.props.adminRole.save();
                     message.info('如果您修改的是自己的，权限，刷新当前页面生效')
                 }
 

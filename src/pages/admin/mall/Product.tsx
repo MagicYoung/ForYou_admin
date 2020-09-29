@@ -260,7 +260,7 @@ export default class ProductPage extends React.Component<Props, ProductStates> {
       const { currentProduct, originCategoryData, originCardCouponCategoryData } = this.state;
       const hideMessage = message.loading(`正在保存商品...`, 0);
       try {
-        fieldsValue.showPrice = parseFloat(fieldsValue.showPrice);
+        fieldsValue.showPrice = parseFloat(fieldsValue.price0);
         // 先上传文件
         const carouselImgsUploaded = await uploadFiles(fieldsValue['carouselImgs']);
 
@@ -695,14 +695,14 @@ export default class ProductPage extends React.Component<Props, ProductStates> {
             </Row>
             <Row gutter={16}>
 
-              <Col span={6}>
+              {/* <Col span={6}>
                 <Form.Item label="商品展示价格">
                   {getFieldDecorator('showPrice', {
                     rules: [{ required: true, message: '请输入商品展示价格' }],
                     initialValue: this.getInitValue('showPrice'),
                   })(<Input type="number" placeholder="请输入价格" />)}
                 </Form.Item>
-              </Col>
+              </Col> */}
               <Col span={12}>
                 <Form.Item label="标语">
                   {getFieldDecorator('description', {

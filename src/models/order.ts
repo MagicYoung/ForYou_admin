@@ -1,5 +1,5 @@
 import * as AV from 'leancloud-storage';
-import { Cart, Order } from '@/AVObjects';
+import { Order } from '@/AVObjects';
 import { Toast } from 'antd-mobile';
 import { cloneDeep } from 'lodash';
 import { OrderStatus } from '@/constants';
@@ -39,56 +39,6 @@ const OrderModel: Model<State.OrderState> = {
         },
       });
       return orders;
-    },
-    *queryCart(action, { put }) {
-      const query = new AV.Query('Cart');
-      query.ascending('createdAt');
-      query.include('product');
-      query.include('product.usableCards');
-      query.equalTo('user', AV.User.current());
-      const cart = yield query.find();
-      yield put({
-        type: 'save',
-        payload: {
-          cart: cart.filter(i => i.get('product')),
-          cartChecked: cart.filter(i => i.get('product')),
-        },
-      });
-    },
-    *addToCart({ payload: product }, { put, select }) {
-      try {
-        product = cloneDeep(product);
-        const { cart } = yield select(state => state.order);
-        // find same spec cartItem firstly. If not, create a new one
-        const item: AV.Object =
-          cart.find((i: AV.Object) => {
-            const specsName = product.spec ? product.spec.specsName : product.get('specs')[0].specsName;
-            return product.id === i.get('product').id && specsName === i.get('spec').specsName;
-          }) || new Cart();
-
-        // accumulate cart num
-        product.cartNum = (product.cartNum || 1) + (item.get('num') || 0);
-        item.set('product', product);
-        item.set('num', product.cartNum);
-        item.set('spec', product.spec || product.get('specs')[0]);
-        item.set('user', AV.User.current());
-        Toast.loading('正在添加...', 0);
-        yield item.save();
-
-        yield put({
-          type: 'queryCart',
-        });
-        // get cart num
-        yield put({
-          type: 'home/queryCartNum',
-        });
-        Toast.hide();
-        Toast.info('成功加入到购物车', 1.5);
-        return true;
-      } catch (err) {
-        console.log(err);
-        Toast.fail('添加失败', 1.5);
-      }
     },
     *deleteCartItems(action, { put, select }) {
       const { cart, cartChecked } = yield select(state => state.order);
@@ -171,9 +121,9 @@ const OrderModel: Model<State.OrderState> = {
         return
         const ret = yield order.save();
         //console.log(ret)
-        if(ret)
-        // delete cart num
-        yield AV.Object.destroyAll(cartChecked);
+        if (ret)
+          // delete cart num
+          yield AV.Object.destroyAll(cartChecked);
         // get cart num
         yield put({
           type: 'home/queryCartNum',

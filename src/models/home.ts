@@ -16,7 +16,6 @@ const homeModel: Model<State.HomeState> = {
     addresses: [],
     drawerVisible: false,
     item: null,
-    cartNum: 0,
     selectedPhoneCard: null,
     openid: '',//当前微信用户的openid
   },
@@ -156,34 +155,6 @@ const homeModel: Model<State.HomeState> = {
       //   },
       // });
       return addresses;
-    },
-    *queryCartNum(action, { put }) {
-      if (AV.User.current()) {
-        const query = new AV.Query('Cart');
-        query.include('product');
-        query.equalTo('user', AV.User.current())
-        const ret = yield query.find();
-        const carts = ret.filter((item) => item.get('product')).map(i => i.get('num'));
-        yield put({
-          type: 'save',
-          payload: {
-            cartNum:
-              carts.length > 0
-                ? carts.reduce((pre, cur) => {
-                  return pre + cur;
-                })
-                : 0,
-          },
-        });
-      }
-      else {
-        yield put({
-          type: 'save',
-          payload: {
-            cartNum: 0,
-          },
-        });
-      }
     },
     *validateCardCoupon({ payload: no }) {
       const query = new AV.Query('CardCoupon');

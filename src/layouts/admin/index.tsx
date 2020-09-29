@@ -13,8 +13,6 @@ import router from 'umi/router';
 
 const { Sider, Content } = Layout;
 
-
-
 interface AdminLayoutProps extends State.AppState, ReduxComponentProps {
   location: Location;
 }
@@ -34,8 +32,10 @@ export default class AdminLayout extends React.Component<AdminLayoutProps, {}> {
     const queryR = new AV.Query('User_Rights');
     queryR.equalTo('user', User.current());
     const resR = await queryR.find();
-
-    this.setState({ userRightsList: resR[0] ? resR[0].get('menuList') : [], isLoadding: false });
+    this.setState({
+      userRightsList: resR[0] ? resR[0].get('menuList') : [],
+      isLoadding: false
+    });
 
 
   }
@@ -121,7 +121,7 @@ export default class AdminLayout extends React.Component<AdminLayoutProps, {}> {
   getMenu = (menu: AdminMenuItem[]) => {
     const { userRightsList } = this.state;
     return menu.map(item =>
-      userRightsList.find((uc) => uc === item.path) ?
+      userRightsList.find((uc) => uc === item.path) || User.current().get('isSysAdmin') ?
         (item.subMenu ? (
           <Menu.SubMenu
             key={item.path}
@@ -160,7 +160,7 @@ export default class AdminLayout extends React.Component<AdminLayoutProps, {}> {
       <Spin spinning={isLoadding}>
         {
           isLoadding ? <div style={{ width: '100%', height: '100%' }}></div> :
-            (userRightsList.length > 0 ?
+            ((userRightsList.length > 0 || User.current().get('isSysAdmin')) ?
               <Layout tagName="main" className={styles.container}>
                 <Sider className={styles.sider} trigger={null} collapsible={true} collapsed={menuCollapsed}>
                   {this.renderLogo()}
